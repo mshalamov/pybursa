@@ -1,7 +1,6 @@
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
 from django.views.generic import TemplateView
-
-
-from django.conf.urls import patterns, url
 
 
 urlpatterns = patterns('',
@@ -13,4 +12,6 @@ urlpatterns = patterns('',
                            name='persons'),
                        url(r'^person$',
                            TemplateView.as_view(template_name='person.html'),
-                           name='home'))
+                           name='home'),
+                       url(r'^students/', include('students.urls')),
+                       url(r'^admin/', include(admin.site.urls)))
