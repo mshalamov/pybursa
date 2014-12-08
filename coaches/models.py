@@ -9,8 +9,8 @@ class Coach(models.Model):
     last_name = models.CharField(max_length=255)
     email = models.EmailField()
     phone_number = models.CharField(max_length=13)
-    type = models.CharField(choices=COACH_TYPES, max_length=1)
+    сtype = models.CharField(choices=COACH_TYPES, max_length=1)
     user = models.ForeignKey(User)
 
     def __unicode__(self):
-        return "%s %s (%s)" % (self.first_name, self.last_name, self.type)
+        return "%s %s (%s)" % (self.first_name, self.last_name, self.сtype)
