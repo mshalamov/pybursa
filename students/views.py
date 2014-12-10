@@ -1,12 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+
+# Create your views here.
 from students.models import Student
 
 
-def student_list(request):
+def students_list(request):
     students = Student.objects.all()
-    return render(request, 'students/list.html', {'students': students})
+    return render(request, 'students/student_list.html',
+                  {'students': students})
 
 
-def student_item(request, student_id):
-    student = Student.objects.get(id=student_id)
-    return render(request, 'students/item.html', {'student': student})
+def student_info(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    return render(request, 'students/student_detail.html',
+                  {'student': student})

@@ -31,7 +31,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="../" class="navbar-brand">Superhero book</a>
+          <a href="../../" class="navbar-brand">Superhero book</a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -42,7 +42,7 @@
           <ul class="nav navbar-nav">
             
             <li>
-              <a href="../">Home</a>
+              <a href="../../">Home</a>
             </li>
             <li>
               <a href="../persons">Persons</a>
@@ -74,14 +74,41 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h1 id="container">Person</h1>
+              <h1 id="container">{{ course.name }}</h1>
             </div>
             <div class="bs-component">
               <div class="jumbotron">
                 <h1>Details</h1>
-                <p>Wolverine is a fictional character, a superhero that appears in American comic books published by Marvel Comics, as well as in movies, television shows, and video games; most often in fiction related to the X-Men. He was created in 1974 by writer Len Wein and Marvel art director John Romita, Sr.</p>
-                <p>Wolverine is a mutant, born with the superhuman ability to fully and rapidly recover from any injury or ailment. He possesses long retractable claws that protrude from the backs of his hands. His skeleton is laced with a fictional metal known as adamantium, which makes it indestructible. Wolverine is a member of the X-Men, a team of superheroes who fight for mutant rights and to preserve the peace between mutants and normal humans.</p>
-                <p>Due to his wild popularity in the 1980s and beyond, an elaborate back story has been created for the character, from his origins in the Canadian prairie land to fighting gangsters in Asia, becoming part of a government-led superhero team, and having extensive adventures apart from other X-Men members.</p>
+                <table class="table table-condensed table-hover">
+                    <tbody>
+                    <tr>
+                        <td>Technology</td>
+                        <td>{{ course.get_technology_display }}</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>{{ course.description }}</td>
+                    </tr>
+                    <tr>
+                        <td>Coach</td>
+                        <td>
+                            <a href="{% url 'coach_info' course.coach.id %}">
+                                {{ course.coach }}
+                            </a>
+                        </td>
+                    </tr>
+                    {% if course.assistant %}
+                        <tr>
+                            <td>Assistant</td>
+                            <td>
+                                <a href="{% url 'coach_info' course.assistant.id %}">
+                                    {{ course.assistant }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
               </div>
             </div>
           </div>
