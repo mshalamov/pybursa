@@ -7,6 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('address', '0001_initial'),
         ('coaches', '0001_initial'),
     ]
 
@@ -20,8 +21,9 @@ class Migration(migrations.Migration):
                 ('start_date', models.DateField()),
                 ('end_date', models.DateField()),
                 ('technology', models.CharField(max_length=255, choices=[(b'p', b'Python'), (b'r', b'Ruby'), (b'j', b'JavaScript')])),
-                ('assistant', models.ForeignKey(related_name='course_assistant', blank=True, to='coaches.Coach')),
+                ('assistant', models.ForeignKey(related_name='course_assistant', blank=True, to='coaches.Coach', null=True)),
                 ('coach', models.ForeignKey(to='coaches.Coach')),
+                ('venue', models.ForeignKey(blank=True, to='address.Address', null=True)),
             ],
             options={
             },

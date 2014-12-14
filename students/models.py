@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 
 from address.models import Address
@@ -28,12 +29,12 @@ class Dossier(models.Model):
         ('RED', 'red'),
         ('WHITE', 'white'),
         ('BLACK', 'black'),
-        ('WHITE', 'white'),
-        ('GREEN', 'green')
+        ('GREEN', 'green'),
+        ('YELLOW', 'yellow')
     )
     address = models.ForeignKey(Address)
     like_color = models.CharField(max_length=35, choices=COLORS)
     unlike_course = models.ManyToManyField(Course, blank=True, null=True)
 
     def __unicode__(self):
-        return "%s %s" % (self.address, self.unlike_course)
+        return "%s %s" % (self.address, self.like_color)

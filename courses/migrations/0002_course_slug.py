@@ -11,10 +11,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.AddField(
             model_name='course',
-            name='assistant',
-            field=models.ForeignKey(related_name='course_assistant', blank=True, to='coaches.Coach', null=True),
-            preserve_default=True,
+            name='slug',
+            field=models.SlugField(default='a'),
+            preserve_default=False,
         ),
     ]

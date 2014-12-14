@@ -9,6 +9,7 @@ class Course(models.Model):
                          ('r', 'Ruby'),
                          ('j', "JavaScript"))
     name = models.CharField(max_length=255)
+    slug = models.SlugField()
     description = models.TextField()
     coach = models.ForeignKey(Coach)
     assistant = models.ForeignKey(Coach, blank=True, null=True,
