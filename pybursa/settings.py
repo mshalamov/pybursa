@@ -39,8 +39,8 @@ INSTALLED_APPS = (
     'students',
     'courses',
     'coaches',
-    'address'
-    #''
+    'address',
+    # ''
 )
 
 MIDDLEWARE_CLASSES = (

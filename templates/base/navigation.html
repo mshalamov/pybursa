@@ -1,0 +1,31 @@
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">PyBursa Courses</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+
+            <li>
+              <a href="../">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'students_list' %}">Students</a>
+            </li>
+            <li>
+                <li><a href="{% url 'courses_list' %}">Courses</a></li>
+            </li>
+            <li>
+                 <li><a href="{% url 'coaches_list' %}">Coaches</a></li>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+    </div>

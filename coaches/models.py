@@ -13,6 +13,7 @@ class Coach(models.Model):
     coach_type = models.CharField(choices=COACH_TYPES,
                                   max_length=1)
     user = models.ForeignKey(User)
+    dossier = models.OneToOneField('students.Dossier', blank=True, null=True)
 
     def __unicode__(self):
         return "%s %s (%s)" % (self.first_name,

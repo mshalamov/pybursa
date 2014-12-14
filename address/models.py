@@ -8,3 +8,6 @@ class Address(models.Model):
     district = models.CharField(max_length=100, blank=True)
     street = models.CharField(max_length=100, blank=True)
     house = models.CharField(max_length=20, blank=True)
+
+    def __unicode__(self):
+        return "%s, %s, %s" % (self.zip_code, self.country, self.province)

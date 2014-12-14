@@ -1,5 +1,6 @@
 from django.db import models
 
+from address.models import Address
 from courses.models import Course
 
 
@@ -16,6 +17,23 @@ class Student(models.Model):
     courses = models.ManyToManyField(Course, blank=True)
     package = models.CharField(max_length=1, choices=PACKAGE_CHOICES,
                                default='s')
+    dossier = models.OneToOneField('students.Dossier', blank=True, null=True)
 
     def __unicode__(self):
         return "%s %s" % (self.first_name, self.last_name)
+
+
+class Dossier(models.Model):
+    COLORS = (
+        ('RED', 'red'),
+        ('WHITE', 'white'),
+        ('BLACK', 'black'),
+        ('WHITE', 'white'),
+        ('GREEN', 'green')
+    )
+    address = models.ForeignKey(Address)
+    like_color = models.CharField(max_length=35, choices=COLORS)
+    unlike_course = models.ManyToManyField(Course, blank=True, null=True)
+
+    def __unicode__(self):
+        return "%s %s" % (self.address, self.unlike_course)
