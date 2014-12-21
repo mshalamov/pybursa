@@ -17,8 +17,14 @@
                     <a href="{% url 'coach_info' coach.id %}">
                     {{ coach.last_name }} {{ coach.first_name }}
                     </a>
+                    <a href="/coach/edit/{{ coach.id }}/">
+                        Edit
+                    </a>
                   </li>
                   {% endfor %}
+                  <a href="/coach/add/">
+                          Add
+                  </a>
                 </ul>
               </div>
             </div>
@@ -26,4 +32,4 @@
         </div>
 
     </div>
-      {% endblock content %}
+    {% endblock content %}

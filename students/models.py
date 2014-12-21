@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django import forms
 
 from address.models import Address
 from courses.models import Course
@@ -38,3 +39,21 @@ class Dossier(models.Model):
 
     def __unicode__(self):
         return "%s %s" % (self.address, self.like_color)
+
+
+class StudentForm(forms.Form):
+    PACKAGE_CHOICES = (
+        ('s', 'Standard'),
+        ('g', 'Gold'),
+        ('p', 'Platinum')
+    )
+    first_name = forms.CharField(max_length=255)
+    last_name = forms.CharField(max_length=255)
+    package = forms.ChoiceField(choices=PACKAGE_CHOICES,
+                                widget=forms.RadioSelect)
+
+
+class StudentModelForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        widgets = {'package': forms.RadioSelect}

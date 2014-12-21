@@ -14,11 +14,17 @@
                 <ul class="list-group">
                   {% for student in students %}
                   <li class="list-group-item">
-                    <a href="/student/{{ student.id }}/">
-                    {{ student.last_name }} {{ student.first_name }}
-                    </a>
+                      <a href="/student/{{ student.id }}/">
+                          {{ student.last_name }} {{ student.first_name }}
+                      </a>
+                      <a href="/student/edit/{{ student.id }}/">
+                          Edit
+                      </a>
                   </li>
                   {% endfor %}
+                  <a href="/student/add/">
+                          Add
+                  </a>
                 </ul>
               </div>
             </div>
@@ -26,4 +32,4 @@
         </div>
 
     </div>
-      {% endblock content %}
+    {% endblock content %}
