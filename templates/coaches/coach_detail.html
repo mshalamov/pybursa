@@ -7,38 +7,38 @@
           <div class="col-lg-12">
             <div class="page-header">
               <h1 id="container">
-                {{ coach.first_name }} {{ coach.last_name }}
-                <small>{{ coach.get_ctype_display }}</small>
+                {{ object.first_name }} {{ object.last_name }}
+                <small>{{ object.get_ctype_display }}</small>
               </h1>
             </div>
-            <div class="bs-component">
+x            <div class="bs-component">
               <div class="jumbotron">
                 <h1>Details</h1>
                 <table class="table table-condensed table-hover">
                     <tbody>
                         <tr>
                             <td>Email</td>
-                            <td>{{ coach.email }}</td>
+                            <td>{{ object.email }}</td>
                         </tr>
                         <tr>
                             <td>Phone number</td>
-                            <td>{{ coach.phone_number }}</td>
+                            <td>{{ object.phone_number }}</td>
                         </tr>
-                        {% if coach.course_set.all %}
+                        {% if object.course_set.all %}
                         <tr>
                             <td>Teaches courses</td>
                             <td>
-                                {% for course in coach.course_set.all %}
-                                    {{ course.name }}<br>
+                                {% for course in object.course_set.all %}
+                                    {{ object.name }}<br>
                                 {% endfor %}
                             </td>
                         </tr>
                         {% endif%}
-                        {% if coach.course_assistant.all %}
+                        {% if object.course_assistant.all %}
                         <tr>
                             <td>Asisstates courses</td>
                             <td>
-                                {% for course in coach.course_assistant.all %}
+                                {% for course in object.course_assistant.all %}
                                     {{ course.name }}<br>
                                 {% endfor %}
                             </td>

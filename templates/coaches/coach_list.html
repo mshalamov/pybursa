@@ -12,7 +12,7 @@
               <div class="jumbotron">
                 <h1>Coach List</h1>
                 <ul class="list-group">
-                  {% for coach in coaches %}
+                  {% for coach in object_list %}
                   <li class="list-group-item">
                     <a href="{% url 'coach_info' coach.id %}">
                     {{ coach.last_name }} {{ coach.first_name }}

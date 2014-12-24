@@ -1,6 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 
 from coaches.models import Coach, CoachForm, CoachModelForm
+
+
+class CoachView(DetailView):
+    template_name = "coaches/coach_detail.html"
+    model = Coach
+
+
+class CoachListView(ListView):
+    model = Coach
 
 
 def coaches_list(request):
