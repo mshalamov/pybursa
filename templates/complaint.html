@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+
+      {% block content %}
+      <div class="bs-docs-section">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="container">Complaint</h1>
+            </div>
+            <div class="bs-component">
+              <div class="jumbotron">
+                <h1>Complaint Form</h1>
+                {% if messages %}
+                  <ul class="messages">
+                      {% for message in messages %}
+                      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                      {% endfor %}
+                  </ul>
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Save" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      {% endblock content %}
